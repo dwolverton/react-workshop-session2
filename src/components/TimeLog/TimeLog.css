@@ -1,0 +1,42 @@
+.TimeLog {
+  max-width: 600px;
+  border: 2px solid gray;
+  padding: 10px;
+  margin: 5px auto 10px;
+}
+
+.TimeLog h2 {
+  margin-top: 0;
+}
+
+.TimeLog__headings {
+  font-weight: bold;
+}
+
+.TimeTimer, .TimeForm, .TimeLog__totals {
+  margin: 16px 0;
+}
+
+.TimeLog__row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.TimeLog__row > * {
+  flex: 1;
+}
+
+.TimeLog__nogrow {
+  flex: 0;
+}
+
+.TimeEntry {
+  border-bottom: 1px solid silver;
+  padding-bottom: 1px;
+  margin-bottom: 2px;
+}
+
+.TimeLog__label {
+  font-weight: bold;
+  margin-left: .5em;
+}

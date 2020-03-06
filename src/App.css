@@ -1,0 +1,11 @@
+.App > section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  align-items: flex-start;
+}
+
+.App > section > * {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,11 @@
+.Message--read {
+  margin-left: -0.8em;
+}
+
+.Message--read .Message__text {
+  color: silver;
+}
+
+.Message__read {
+  margin-right: 2px;
+}
