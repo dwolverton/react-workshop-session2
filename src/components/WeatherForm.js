@@ -5,7 +5,15 @@ class WeatherForm extends Component {
 
   state = {
     conditions: "Sunny",
-    highF: 72
+    highF: 72,
+    list: [
+      { conditions: "Rainy", high: 72, low: 55},
+      { conditions: "Cloudy", high: 68, low: 56}
+    ],
+    grades: [
+      { label: "Worksheet 1", score: 3, total: 20, passing: false },
+      { label: "Final Exam", score: 99, total: 100, passing: true }
+    ]
   }
 
   handleChangeConditions = e => {
@@ -14,7 +22,7 @@ class WeatherForm extends Component {
     });
   }
 
-  handleChangeHighF = e => {
+  handleChangeHighF = (e) => {
     this.setState({
       highF: e.target.value
     });
@@ -23,9 +31,6 @@ class WeatherForm extends Component {
   render() {
     return (
       <div className="WeatherForm box">
-        <Weather conditions={this.state.conditions}
-                 highF={this.state.highF}
-                 lowF={this.state.highF - 18} />
         <form>
           <p>
             <label>Conditions</label>
@@ -38,6 +43,12 @@ class WeatherForm extends Component {
                    onChange={this.handleChangeHighF}/>
           </p>
         </form>
+
+        {this.state.list.map((data, index) =>
+            <Weather key={index} conditions={data.conditions}
+                highF={data.high}
+                lowF={data.low} />
+          )}
       </div>
     );
   }
