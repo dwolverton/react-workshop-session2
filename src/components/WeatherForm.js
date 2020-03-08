@@ -9,10 +9,6 @@ class WeatherForm extends Component {
     list: [
       { conditions: "Rainy", high: 72, low: 55},
       { conditions: "Cloudy", high: 68, low: 56}
-    ],
-    grades: [
-      { label: "Worksheet 1", score: 3, total: 20, passing: false },
-      { label: "Final Exam", score: 99, total: 100, passing: true }
     ]
   }
 
@@ -28,10 +24,27 @@ class WeatherForm extends Component {
     });
   }
 
+  handleSubmit = (e) => {
+    // stop the form from reloading the page
+    e.preventDefault();
+    const newItem = {
+      conditions: this.state.conditions,
+      high: this.state.highF,
+      low: this.state.highF - 18
+    };
+    this.setState(prev => {
+      const newList = prev.list.slice(0);
+      newList.push(newItem);
+      return {
+        list: newList
+      };
+    });
+  }
+
   render() {
     return (
       <div className="WeatherForm box">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <p>
             <label>Conditions</label>
             <input value={this.state.conditions}
@@ -42,6 +55,7 @@ class WeatherForm extends Component {
             <input value={this.state.highF} type="number"
                    onChange={this.handleChangeHighF}/>
           </p>
+          <p><button type="submit">Add</button></p>
         </form>
 
         {this.state.list.map((data, index) =>
