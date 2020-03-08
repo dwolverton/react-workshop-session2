@@ -6,11 +6,13 @@ import TimeLog from './components/TimeLog/TimeLog';
 import WeatherForm from './components/WeatherForm';
 import GradeForm from './components/GradeForm';
 import Inbox from './components/Inbox/Inbox';
+import NameForm from './components/NameForm';
 
 function App() {
   return (
     <div className="App">
-      <Inbox />
+      <NameForm />
+      
       <WeatherForm />
       <TimeLog />
       <GradeForm />
