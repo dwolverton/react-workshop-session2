@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './TimeLog.css';
 import { diffInSeconds, formatDiffInSeconds } from '../../timeUtil';
 import TimeEntry from './TimeEntry';
+import TimeForm from './TimeForm';
 
 class TimeLog extends Component {
 
@@ -12,6 +13,14 @@ class TimeLog extends Component {
     ]
   }
 
+  handleAddEntry = (entry) => {
+    this.setState(prev => {
+      const newList = prev.entries.slice(0);
+      newList.push(entry);
+      return { entries: newList };
+    });
+  }
+
   render() {
     const total = this.state.entries.reduce((sum, entry) => sum + diffInSeconds(entry.end, entry.start), 0);
 
@@ -19,6 +28,7 @@ class TimeLog extends Component {
       <div className="TimeLog">
         <h2>Time Log</h2>
 
+        <TimeForm onAdd={this.handleAddEntry}/>
 
         <div className="TimeLog__headings TimeLog__row">
           <span>Amount</span><span>Start</span><span>End</span>
