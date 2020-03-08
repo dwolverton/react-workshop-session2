@@ -8,6 +8,7 @@ import TimeLog from './components/TimeLog/TimeLog';
 function App() {
   return (
     <div className="App">
+      <TimeLog />
     </div>
   );
 }
