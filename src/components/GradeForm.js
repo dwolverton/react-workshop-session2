@@ -24,14 +24,12 @@ class GradeForm extends Component {
       return (
           <div className="GradeForm">
               <Grade label={this.state.label} score={this.state.score} total={20} passing={pass}></Grade>
-              <p>
-                  <form>
-                      <label>Label</label>
-                      <input value={this.state.label} onChange={this.handleChangeLabel} ></input>
-                      <label>Score</label>
-                      <input value={this.state.score} onChange={this.handleChangeScore} type="number" min="0" max="20"></input>
-                  </form>
-              </p>
+              <form>
+                  <label>Label</label>
+                  <input value={this.state.label} onChange={this.handleChangeLabel} ></input>
+                  <label>Score</label>
+                  <input value={this.state.score} onChange={this.handleChangeScore} type="number" min="0" max="20"></input>
+              </form>
           </div>
       );
   }
