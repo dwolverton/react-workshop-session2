@@ -9,6 +9,7 @@ class TimeEntry extends Component {
         <span>{formatDiffInSeconds(seconds)}</span>
         <span>{formatTime(this.props.start)}</span>
         <span>{formatTime(this.props.end)}</span>
+        <button className="TimeLog__nogrow" type="button">&times;</button>
       </div>
     )
   }

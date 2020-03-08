@@ -24,8 +24,10 @@ class TimeLog extends Component {
           <span>Amount</span><span>Start</span><span>End</span>
         </div>
 
-        <TimeEntry start={new Date('1995-12-17T03:24:00')}
-                   end={new Date('1995-12-17T04:12:19')} />
+        {this.state.entries.map(data =>
+          <TimeEntry start={data.start} key={data.start}
+                    end={data.end} />
+        )}
 
         <div className="TimeLog__totals TimeLog__row">
           <span>{formatDiffInSeconds(total)} <span className="TimeLog__label">Total</span></span>
