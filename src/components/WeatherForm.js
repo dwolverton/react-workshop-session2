@@ -20,7 +20,7 @@ class WeatherForm extends Component {
 
   handleChangeHighF = (e) => {
     this.setState({
-      highF: e.target.value
+      highF: parseFloat(e.target.value)
     });
   }
 
@@ -33,10 +33,12 @@ class WeatherForm extends Component {
       low: this.state.highF - 18
     };
     this.setState(prev => {
+      // create a copy of the array from state
+      // so that we don't modify state directly
       const newList = prev.list.slice(0);
       newList.push(newItem);
       return {
-        list: newList
+        list: newList // replace the array
       };
     });
   }

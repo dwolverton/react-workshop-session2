@@ -12,13 +12,21 @@ class Inbox extends Component {
     ]
   }
 
+  handleDelete = (index) => {
+    this.setState(prev => {
+      const newList = prev.messages.slice(0);
+      newList.splice(index, 1);
+      return { messages: newList };
+    });
+  }
+
   render() {
     return (
       <div className="Inbox box">
         <h3>Messages</h3>
         <ul>
           {this.state.messages.map((message, i) => 
-            <Message message={message} />
+            <Message message={message} onDelete={() => this.handleDelete(i)} />
           )}
         </ul>
       </div>
